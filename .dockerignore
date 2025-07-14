@@ -1,0 +1,48 @@
+# Archivos de Node.js
+node_modules
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Archivos de build (no los necesitamos para desarrollo)
+dist
+build
+
+# Archivos del editor
+.vscode
+.idea
+*.swp
+*.swo
+*~
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# Logs
+logs
+*.log
+
+# Coverage
+coverage
+
+# Git
+.git
+
+# Docker files que no necesitamos dentro de la imagen
+Dockerfile
+.dockerignore
+docker-compose*.yml
+docker-deploy.sh
+docker-compose-manager.sh
+
+# README y documentación
+README.md
+CHANGELOG.md
+LICENSE
+
+# E2E
+e2e
+
+# Archivos temporales de Angular
+.angular

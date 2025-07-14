@@ -1,0 +1,10 @@
+[build]
+builder = "dockerfile"
+
+[deploy]
+healthcheckPath = "/"
+healthcheckTimeout = 300
+restartPolicyType = "on_failure"
+
+[environments.production]
+variables = { NODE_ENV = "development", NG_CLI_ANALYTICS = "false" }
