@@ -41,6 +41,7 @@ export class LoginComponent implements OnInit {
       const { username, password } = this.loginForm.value; this.authService.login(username, password).subscribe({
         next: (response) => {
           this.isLoading = false;
+          this.error = '';
           this.animationService.showWelcomeAnimation();
           console.log('Login successful:', response);
           console.log('User roles:', response.user.roles);

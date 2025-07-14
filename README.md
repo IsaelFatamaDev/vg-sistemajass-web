@@ -613,5 +613,3 @@ La directiva `permission.directive.ts` en `src/app/shared/directives/` permite c
 - `src/environments/environment.production.ts`: Configuración para producción.
 - `src/app/core/utils/constants.ts`: Constantes comunes, como códigos de estado o mensajes.
 
-#   v g - s i s t e m a j a s s - w e b  
- 

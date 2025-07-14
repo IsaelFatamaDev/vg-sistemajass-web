@@ -21,6 +21,7 @@ export class SidebarComponent implements OnInit {
   isWaterQualityDropdownOpen: boolean = false;
   isOrganizationsDropdownOpen: boolean = false;
   isDistributionMenuOpen: boolean = false;
+  isComplaintsIncidentsDropdownOpen: boolean = false;
   
   constructor(
     public authService: AuthService,
@@ -80,6 +81,10 @@ toggleDistributionMenu(): void {
 
   toggleOrganizationsDropdown() {
     this.isOrganizationsDropdownOpen = !this.isOrganizationsDropdownOpen;
+  }
+
+  toggleComplaintsIncidentsDropdown(): void {
+    this.isComplaintsIncidentsDropdownOpen = !this.isComplaintsIncidentsDropdownOpen;
   }
 
   hasRole(role: RolesUsers): boolean {

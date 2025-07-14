@@ -77,6 +77,10 @@ export const APP_ROUTES: Routes = [
         path: 'water-quality',
         loadChildren: () => import('./modules/water-quality/water-quality-routing.module').then(m => m.WaterQualityRoutingModule)
       },
+      {
+        path: 'complaints-incidents',
+        loadChildren: () => import('./modules/complaints-incidents/complaints-incidents.module').then(m => m.ComplaintsIncidentsModule)
+      },
      {
         path: 'distribution',
         children: [

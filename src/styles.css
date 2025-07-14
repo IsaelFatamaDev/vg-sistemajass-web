@@ -183,3 +183,6 @@ body {
 .animate-soft-pulse {
   animation: softPulse 2s ease-in-out infinite;
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

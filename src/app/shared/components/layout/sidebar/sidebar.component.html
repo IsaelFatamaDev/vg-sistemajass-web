@@ -275,32 +275,75 @@
                     </a>
                 </li>
 
-                <li *ngIf="hasRole(RolesUsers.ADMIN)">
-                    <a routerLink="/admin/incidents"
-                        routerLinkActive="bg-sky-800 dark:bg-gray-700 shadow-lg ring-1 ring-sky-600 dark:ring-gray-600"
-                        class="flex items-center px-4 py-3 text-white transition-all duration-200 rounded-xl hover:bg-sky-800/70 dark:hover:bg-gray-700/70 group"
-                        (click)="onOptionSelected()">
-                        <div
-                            class="flex items-center justify-center w-10 h-10 mr-3 transition-colors rounded-lg bg-sky-700/50 dark:bg-gray-600/50 group-hover:bg-sky-600 dark:group-hover:bg-gray-600">
+                <li *ngIf="hasRole(RolesUsers.ADMIN)" class="group">
+                    <div class="relative">
+                      <button
+                        (click)="toggleComplaintsIncidentsDropdown()"
+                        class="flex items-center justify-between w-full px-4 py-3 text-white transition-all duration-200 rounded-xl hover:bg-sky-800/70 dark:hover:bg-gray-700/70 group"
+                        [class.bg-sky-800]="isComplaintsIncidentsDropdownOpen"
+                        [class.dark:bg-gray-700]="isComplaintsIncidentsDropdownOpen"
+                      >
+                        <div class="flex items-center">
+                          <div class="flex items-center justify-center w-10 h-10 mr-3 transition-colors rounded-lg bg-sky-700/50 dark:bg-gray-600/50 group-hover:bg-sky-600 dark:group-hover:bg-gray-600">
                             <i class="text-base fas fa-exclamation-triangle text-sky-200 dark:text-gray-300"></i>
+                          </div>
+                          <span class="font-medium">Incidencias</span>
                         </div>
-                        <span class="font-medium">Incidencias</span>
-                    </a>
-                </li>
+                        <i
+                          class="text-sm transition-transform duration-200 fas fa-chevron-down"
+                          [class.rotate-180]="isComplaintsIncidentsDropdownOpen"
+                        ></i>
+                      </button>
 
-                <li *ngIf="hasRole(RolesUsers.ADMIN)">
-                    <a routerLink="/admin/complaints"
-                        routerLinkActive="bg-sky-800 dark:bg-gray-700 shadow-lg ring-1 ring-sky-600 dark:ring-gray-600"
-                        class="flex items-center px-4 py-3 text-white transition-all duration-200 rounded-xl hover:bg-sky-800/70 dark:hover:bg-gray-700/70 group"
-                        (click)="onOptionSelected()">
-                        <div
-                            class="flex items-center justify-center w-10 h-10 mr-3 transition-colors rounded-lg bg-sky-700/50 dark:bg-gray-600/50 group-hover:bg-sky-600 dark:group-hover:bg-gray-600">
-                            <i class="text-base fas fa-comments text-sky-200 dark:text-gray-300"></i>
+                      <div
+                        class="overflow-hidden transition-all duration-300"
+                        [class.max-h-0]="!isComplaintsIncidentsDropdownOpen"
+                        [class.max-h-96]="isComplaintsIncidentsDropdownOpen"
+                      >
+                        <div class="mt-2 ml-4 space-y-1">
+                          <!-- Tipo de Incidencias -->
+                          <a
+                            routerLink="/admin/complaints-incidents/incident-types"
+                            routerLinkActive="bg-sky-700 dark:bg-gray-600 shadow-md"
+                            class="flex items-center py-2.5 px-4 text-sky-100 dark:text-gray-300 rounded-lg hover:bg-sky-700/70 dark:hover:bg-gray-600/70 transition-all duration-200 group text-sm"
+                            (click)="onOptionSelected()"
+                          >
+                            <div class="flex items-center justify-center w-8 h-8 mr-3 rounded-md bg-sky-600/30 dark:bg-gray-500/30 group-hover:bg-sky-600/50 dark:group-hover:bg-gray-500/50">
+                              <i class="text-xs fas fa-tasks text-sky-200 dark:text-gray-400"></i>
+                            </div>
+                            <span class="font-medium">Tipos de Incidencia</span>
+                          </a>
+
+                          <!-- Listar Incidencias -->
+                          <a
+                            routerLink="/admin/complaints-incidents/incidents"
+                            routerLinkActive="bg-sky-700 dark:bg-gray-600 shadow-md"
+                            class="flex items-center py-2.5 px-4 text-sky-100 dark:text-gray-300 rounded-lg hover:bg-sky-700/70 dark:hover:bg-gray-600/70 transition-all duration-200 group text-sm"
+                            (click)="onOptionSelected()"
+                          >
+                            <div class="flex items-center justify-center w-8 h-8 mr-3 rounded-md bg-sky-600/30 dark:bg-gray-500/30 group-hover:bg-sky-600/50 dark:group-hover:bg-gray-500/50">
+                              <i class="text-xs fas fa-exclamation-triangle text-sky-200 dark:text-gray-400"></i>
+                            </div>
+                            <span class="font-medium">Incidencias</span>
+                          </a>
+
+                          <!-- Resoluciones de Incidencias -->
+                          <!-- <a
+                            routerLink="/admin/complaints-incidents/incident-resolutions"
+                            routerLinkActive="bg-sky-700 dark:bg-gray-600 shadow-md"
+                            class="flex items-center py-2.5 px-4 text-sky-100 dark:text-gray-300 rounded-lg hover:bg-sky-700/70 dark:hover:bg-gray-600/70 transition-all duration-200 group text-sm"
+                            (click)="onOptionSelected()"
+                          >
+                            <div class="flex items-center justify-center w-8 h-8 mr-3 rounded-md bg-sky-600/30 dark:bg-gray-500/30 group-hover:bg-sky-600/50 dark:group-hover:bg-gray-500/50">
+                              <i class="text-xs fas fa-check-circle text-sky-200 dark:text-gray-400"></i>
+                            </div>
+                            <span class="font-medium">Resoluciones de Incidencias</span>
+                          </a> -->
                         </div>
-                        <span class="font-medium">Reclamos</span>
-                    </a>
-                </li>
-
+                      </div>
+                    </div>
+                  </li>
+                  
                 <li *ngIf="hasRole(RolesUsers.CLIENT)">
                     <a routerLink="/client/my-payments"
                         routerLinkActive="bg-sky-800 dark:bg-gray-700 shadow-lg ring-1 ring-sky-600 dark:ring-gray-600"
